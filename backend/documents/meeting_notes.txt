@@ -1,0 +1,30 @@
+Meeting Notes
+
+Project: Office Assistant AI
+
+Date: 10 August 2026
+
+Attendees:
+Rahul
+Neha
+Amit
+
+Discussion:
+
+- Integrate LangGraph.
+- Add MCP servers.
+- Build RAG support.
+- Improve Human Approval workflow.
+- Store user memories in SQLite.
+- Use ChromaDB for document search.
+
+Action Items:
+
+Rahul:
+Complete document loader.
+
+Neha:
+Prepare employee handbook.
+
+Amit:
+Deploy the assistant.

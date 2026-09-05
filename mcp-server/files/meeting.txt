@@ -1,0 +1,7 @@
+Team Meeting
+- Finish MCP server
+- Connect to Cursor
+- Test AI tools
+-leave the meeting
+
+- Learn SQLite MCP tools

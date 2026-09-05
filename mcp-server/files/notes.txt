@@ -1,0 +1,5 @@
+- Complete MCP server
+- Connect with Cursor
+- Test AI tools
+- Leave the office
+Meeting at 3 PM

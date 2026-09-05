@@ -1,0 +1,6 @@
+Meeting Notes
+
+- Complete MCP server
+- Connect with Cursor
+- Build AI office assistant
+- Leave the assistant
