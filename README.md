@@ -139,7 +139,7 @@ The backend uses asynchronous Python components including:
 
 ### Document Upload Confirmation
 
-![Document Upload Confirmation](screenshots/document-upload-conformation.png)
+![Document Upload Confirmation](screenshots/document-upload-confirmation.png)
 
 ### RAG Document Question Answering
 
