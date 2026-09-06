@@ -10,14 +10,14 @@ The system accepts natural-language requests, determines the required actions, p
 
 ### 🤖 AI Assistant
 
-* Natural-language chat interface
-* LangGraph-based agent orchestration
-* LangChain tool integration
-* Provider-independent LLM architecture
-* Support for Ollama and OpenAI
-* Structured task planning
-* Multi-step task execution
-* Context-aware responses
+- Natural-language chat interface
+- LangGraph-based agent orchestration
+- LangChain tool integration
+- Provider-independent LLM architecture
+- Support for Ollama and OpenAI
+- Structured task planning
+- Multi-step task execution
+- Context-aware responses
 
 ### 🔌 MCP Integration
 
@@ -30,7 +30,7 @@ The application uses six specialized MCP servers:
 5. Database Server
 6. Office Server
 
-All six MCP servers are required for the complete application and are started automatically using:
+All six MCP servers are required for the complete application and can be started automatically using:
 
 ```powershell
 .\start_all.ps1
@@ -38,15 +38,15 @@ All six MCP servers are required for the complete application and are started au
 
 ### ⚙️ Task Automation
 
-* Natural-language task planning
-* Multiple task execution
-* Parallel task execution where possible
-* Task dependencies
-* Dependency result handling
-* Tool argument resolution
-* Task result tracking
-* Execution status management
-* Multi-step workflows
+- Natural-language task planning
+- Multiple task execution
+- Parallel task execution where possible
+- Task dependencies
+- Dependency result handling
+- Tool argument resolution
+- Task result tracking
+- Execution status management
+- Multi-step workflows
 
 ### 🛡️ Risk Analysis & Human Approval
 
@@ -54,20 +54,20 @@ The system evaluates potentially dangerous tool operations before execution.
 
 Risk levels include:
 
-* LOW
-* MEDIUM
-* HIGH
+- LOW
+- MEDIUM
+- HIGH
 
 High-risk operations can require explicit human approval before execution.
 
 Examples include:
 
-* Sending external communication
-* Deleting information
-* Modifying important records
-* Financially consequential operations
-* Exposing sensitive information
-* Irreversible operations
+- Sending external communication
+- Deleting information
+- Modifying important records
+- Financially consequential operations
+- Exposing sensitive information
+- Irreversible operations
 
 The approval workflow is integrated with LangGraph and the React frontend.
 
@@ -77,20 +77,20 @@ The application provides document-based question answering using Retrieval-Augme
 
 Features include:
 
-* Document loading
-* Text splitting
-* Embedding generation
-* Chroma vector database
-* Semantic document retrieval
-* Uploaded document processing
-* Temporary document usage
-* Permanent document storage
-* Document upload confirmation
+- Document loading
+- Text splitting
+- Embedding generation
+- Chroma vector database
+- Semantic document retrieval
+- Uploaded document processing
+- Temporary document usage
+- Permanent document storage
+- Document upload confirmation
 
 The user can choose whether an uploaded document should be:
 
-* Saved permanently
-* Used only for the current chat
+- **Saved Permanently**
+- **Used Only This Chat**
 
 ### 🧠 Long-Term Memory
 
@@ -98,32 +98,60 @@ The assistant includes a memory system for storing and retrieving useful informa
 
 The memory system contains:
 
-* Memory extraction
-* Memory storage
-* Memory retrieval
-* Relevant memory injection into conversations
+- Memory extraction
+- Memory storage
+- Memory retrieval
+- Relevant memory injection into conversations
 
 ### 💬 Chat Interface
 
 The React frontend provides:
 
-* Chat interface
-* Conversation history
-* Thread-based conversations
-* File uploads
-* Document upload confirmation
-* Human approval interface
-* Theme support
-* Backend API integration
+- Chat interface
+- Conversation history
+- Thread-based conversations
+- File uploads
+- Document upload confirmation
+- Human approval interface
+- Theme support
+- Backend API integration
 
 ### ⚡ Asynchronous Architecture
 
 The backend uses asynchronous Python components including:
 
-* `asyncio`
-* FastAPI
-* Async LangChain/LangGraph operations
-* Parallel task execution
+- `asyncio`
+- FastAPI
+- Async LangChain/LangGraph operations
+- Parallel task execution
+
+---
+
+## 🖼️ Screenshots
+
+### Main Chat Interface
+
+![Main Chat](screenshots/main-chat.png)
+
+### Document Upload
+
+![Document Upload](screenshots/document-upload.png)
+
+### Document Upload Confirmation
+
+![Document Upload Confirmation](screenshots/document-upload-conformation.png)
+
+### RAG Document Question Answering
+
+![RAG Answer](screenshots/rag-answer.png)
+
+### Human Approval Workflow
+
+![Human Approval Workflow](screenshots/approval-workflow.png)
+
+### Light / Dark Mode
+
+![Light and Dark Mode](screenshots/light-dark-mode.png)
 
 ---
 
@@ -135,7 +163,7 @@ The overall application architecture is:
                          ┌─────────────────────────┐
                          │      React + Vite        │
                          │        Frontend          │
-                         │     localhost:5173       │
+                         │      localhost:5173      │
                          └────────────┬────────────┘
                                       │
                                       │ HTTP
@@ -143,7 +171,7 @@ The overall application architecture is:
                          ┌─────────────────────────┐
                          │        FastAPI           │
                          │        Backend           │
-                         │     localhost:8080       │
+                         │      localhost:8080      │
                          └────────────┬────────────┘
                                       │
                                       ▼
@@ -152,19 +180,19 @@ The overall application architecture is:
                          │    Agent Orchestration   │
                          └────────────┬────────────┘
                                       │
-                  ┌───────────────────┼───────────────────┐
-                  │                   │                   │
-                  ▼                   ▼                   ▼
-          ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-          │ MCP Servers  │    │     RAG      │    │    Memory    │
-          │              │    │              │    │              │
-          │ 6 Servers    │    │   Chroma     │    │ Long-Term    │
-          │              │    │  Embeddings  │    │   Memory     │
-          └──────┬───────┘    └──────────────┘    └──────────────┘
+                 ┌────────────────────┼────────────────────┐
+                 │                    │                    │
+                 ▼                    ▼                    ▼
+          ┌──────────────┐     ┌──────────────┐     ┌──────────────┐
+          │ MCP Servers  │     │     RAG      │     │    Memory    │
+          │              │     │              │     │              │
+          │  6 Servers   │     │    Chroma    │     │  Long-Term   │
+          │              │     │  Embeddings  │     │    Memory    │
+          └──────┬───────┘     └──────────────┘     └──────────────┘
                  │
                  ▼
           ┌─────────────────────────────────────────┐
-          │               MCP Tools                 │
+          │              MCP Tools                  │
           │                                         │
           │ Weather │ Utility │ Communication       │
           │ Document │ Database │ Office            │
@@ -263,20 +291,20 @@ The MCP layer contains specialized tools for different office operations.
 
 Examples include:
 
-* Calculator operations
-* Database operations
-* Email operations
-* Excel reading
-* File operations
-* Folder operations
-* Notes
-* PDF reading
-* Prompt handling
-* Report generation
-* Resource handling
-* Searching
-* System operations
-* Weather operations
+- Calculator operations
+- Database operations
+- Email operations
+- Excel reading
+- File operations
+- Folder operations
+- Notes
+- PDF reading
+- Prompt handling
+- Report generation
+- Resource handling
+- Searching
+- System operations
+- Weather operations
 
 Tools are organized under:
 
@@ -290,24 +318,24 @@ mcp-server/tools/
 
 ## Backend
 
-| Technology    | Purpose                      |
-| ------------- | ---------------------------- |
-| Python 3.11+  | Backend programming language |
-| FastAPI       | REST API                     |
-| LangGraph     | Agent orchestration          |
-| LangChain     | LLM and tool integration     |
-| Pydantic      | Data validation              |
-| asyncio       | Asynchronous execution       |
-| SQLite        | Local database support       |
-| Chroma        | Vector database              |
-| Guardrails AI | AI output validation         |
+| Technology | Purpose |
+| --- | --- |
+| Python 3.11+ | Backend programming language |
+| FastAPI | REST API |
+| LangGraph | Agent orchestration |
+| LangChain | LLM and tool integration |
+| Pydantic | Data validation |
+| asyncio | Asynchronous execution |
+| SQLite | Local database support |
+| Chroma | Vector database |
+| Guardrails AI | AI output validation |
 
 ## LLM Providers
 
 The project supports:
 
-* Ollama
-* OpenAI
+- Ollama
+- OpenAI
 
 The LLM provider configuration is isolated in:
 
@@ -333,12 +361,12 @@ text-embedding-3-small
 
 ## Frontend
 
-| Technology | Purpose                       |
-| ---------- | ----------------------------- |
-| React      | User interface                |
-| Vite       | Development/build tool        |
+| Technology | Purpose |
+| --- | --- |
+| React | User interface |
+| Vite | Development/build tool |
 | JavaScript | Frontend programming language |
-| CSS        | UI styling                    |
+| CSS | UI styling |
 
 ## MCP
 
@@ -389,10 +417,8 @@ office-assistant-ai/
 │   │   └── tools.py
 │   │
 │   ├── documents/
-│   ├── data/
 │   ├── test/
-│   ├── requirements.txt
-│   └── .venv/
+│   └── requirements.txt
 │
 ├── frontend/
 │   ├── public/
@@ -404,15 +430,12 @@ office-assistant-ai/
 │   │   └── main.jsx
 │   │
 │   ├── package.json
-│   └── node_modules/
+│   └── package-lock.json
 │
 ├── mcp-server/
 │   ├── core/
 │   │   ├── auth.py
 │   │   └── message.py
-│   │
-│   ├── database/
-│   │   └── office.db
 │   │
 │   ├── files/
 │   │   ├── company_policy.txt
@@ -449,9 +472,16 @@ office-assistant-ai/
 │   │   ├── system_tools.py
 │   │   └── weather_tools.py
 │   │
-│   └── .venv/
+│   └── requirements.txt
 │
-├── docs/
+├── screenshots/
+│   ├── approval-workflow.png
+│   ├── document-upload-conformation.png
+│   ├── document-upload.png
+│   ├── light-dark-mode.png
+│   ├── main-chat.png
+│   └── rag-answer.png
+│
 ├── start_all.ps1
 ├── .gitignore
 └── README.md
@@ -465,12 +495,12 @@ office-assistant-ai/
 
 Install the following before running the project:
 
-* Python 3.11 or newer
-* Node.js
-* npm
-* Git
-* Ollama, if using Ollama
-* PowerShell on Windows
+- Python 3.11 or newer
+- Node.js
+- npm
+- Git
+- Ollama, if using Ollama
+- PowerShell on Windows
 
 Check Python:
 
@@ -509,11 +539,10 @@ ollama --version
 ## 1. Clone the Repository
 
 ```powershell
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/ujjwalprajapatinareshbhai/office-assistant-ai.git
+
 cd office-assistant-ai
 ```
-
-Replace `<YOUR_GITHUB_REPOSITORY_URL>` with your GitHub repository URL.
 
 ---
 
@@ -573,9 +602,7 @@ Activate it:
 .\.venv\Scripts\Activate.ps1
 ```
 
-Install MCP dependencies.
-
-If the MCP project contains a requirements file:
+Install MCP dependencies:
 
 ```powershell
 pip install -r requirements.txt
@@ -627,10 +654,8 @@ A typical Ollama configuration may look like:
 
 ```env
 LLM_PROVIDER=ollama
-
 OLLAMA_MODEL=<your-ollama-chat-model>
 OLLAMA_EMBEDDING_MODEL=nomic-embed-text
-
 OLLAMA_NUM_PREDICT=4096
 OLLAMA_NUM_CTX=16384
 OLLAMA_KEEP_ALIVE=30m
@@ -642,7 +667,6 @@ Example:
 
 ```env
 LLM_PROVIDER=openai
-
 OPENAI_MODEL=<your-openai-model>
 OPENAI_EMBEDDING_MODEL=text-embedding-3-small
 OPENAI_API_KEY=<your-api-key>
@@ -764,7 +788,9 @@ If you want to start the services manually, use separate PowerShell terminals.
 
 ```powershell
 cd D:\office-assistant-ai\mcp-server
+
 .\.venv\Scripts\Activate.ps1
+
 python -m servers.Weather_Server
 ```
 
@@ -776,7 +802,9 @@ Keep this terminal running.
 
 ```powershell
 cd D:\office-assistant-ai\mcp-server
+
 .\.venv\Scripts\Activate.ps1
+
 python -m servers.Utility_Server
 ```
 
@@ -788,7 +816,9 @@ Keep this terminal running.
 
 ```powershell
 cd D:\office-assistant-ai\mcp-server
+
 .\.venv\Scripts\Activate.ps1
+
 python -m servers.Communication_Server
 ```
 
@@ -800,7 +830,9 @@ Keep this terminal running.
 
 ```powershell
 cd D:\office-assistant-ai\mcp-server
+
 .\.venv\Scripts\Activate.ps1
+
 python -m servers.Document_Server
 ```
 
@@ -812,7 +844,9 @@ Keep this terminal running.
 
 ```powershell
 cd D:\office-assistant-ai\mcp-server
+
 .\.venv\Scripts\Activate.ps1
+
 python -m servers.Database_Server
 ```
 
@@ -824,7 +858,9 @@ Keep this terminal running.
 
 ```powershell
 cd D:\office-assistant-ai\mcp-server
+
 .\.venv\Scripts\Activate.ps1
+
 python -m servers.Office_Server
 ```
 
@@ -836,7 +872,9 @@ Keep this terminal running.
 
 ```powershell
 cd D:\office-assistant-ai\backend
+
 .\.venv\Scripts\Activate.ps1
+
 uvicorn app.api:app --reload --port 8080
 ```
 
@@ -846,6 +884,7 @@ uvicorn app.api:app --reload --port 8080
 
 ```powershell
 cd D:\office-assistant-ai\frontend
+
 npm run dev
 ```
 
@@ -859,12 +898,12 @@ http://localhost:5173
 
 # 🌐 Application URLs
 
-| Service         | URL                                |
-| --------------- | ---------------------------------- |
-| Frontend        | http://localhost:5173              |
-| Backend         | http://localhost:8080              |
-| FastAPI Swagger | http://localhost:8080/docs         |
-| OpenAPI         | http://localhost:8080/openapi.json |
+| Service | URL |
+| --- | --- |
+| Frontend | http://localhost:5173 |
+| Backend | http://localhost:8080 |
+| FastAPI Swagger | http://localhost:8080/docs |
+| OpenAPI | http://localhost:8080/openapi.json |
 
 ---
 
@@ -910,16 +949,16 @@ Risk Analysis
                     MCP Server
                          │
                          ▼
-                      MCP Tool
+                     MCP Tool
                          │
                          ▼
-                     Task Result
+                    Task Result
                          │
                          ▼
-                  Final AI Response
+                   Final AI Response
                          │
                          ▼
-                  React Frontend
+                    React Frontend
 ```
 
 ---
@@ -1053,12 +1092,12 @@ HIGH
 
 Potentially high-risk operations include:
 
-* External communication
-* Data deletion
-* Important record modification
-* Financial actions
-* Sensitive information exposure
-* Irreversible actions
+- External communication
+- Data deletion
+- Important record modification
+- Financial actions
+- Sensitive information exposure
+- Irreversible actions
 
 ---
 
@@ -1068,22 +1107,22 @@ When a task requires approval, execution can pause until the user makes a decisi
 
 ```text
 User Request
-     │
-     ▼
+    │
+    ▼
 Task Planning
-     │
-     ▼
+    │
+    ▼
 Risk Analysis
-     │
-     ▼
+    │
+    ▼
 HIGH RISK
-     │
-     ▼
+    │
+    ▼
 Human Approval
-     │
-     ├── Approved ──► Execute
-     │
-     └── Rejected ──► Stop
+    │
+    ├── Approved ──► Execute
+    │
+    └── Rejected ──► Stop
 ```
 
 The React frontend displays the approval request and sends the user's decision back to the backend.
@@ -1122,6 +1161,7 @@ If the project contains pytest-compatible tests, run:
 
 ```powershell
 cd backend
+
 python -m pytest
 ```
 
@@ -1171,6 +1211,7 @@ First make sure you are using the MCP virtual environment:
 
 ```powershell
 cd mcp-server
+
 .\.venv\Scripts\Activate.ps1
 ```
 
@@ -1210,6 +1251,7 @@ Activate the backend environment:
 
 ```powershell
 cd backend
+
 .\.venv\Scripts\Activate.ps1
 ```
 
@@ -1342,13 +1384,13 @@ logs/
 
 Do not commit:
 
-* API keys
-* Passwords
-* Authentication tokens
-* Private credentials
-* Production secrets
-* Personal information
-* Private documents
+- API keys
+- Passwords
+- Authentication tokens
+- Private credentials
+- Production secrets
+- Personal information
+- Private documents
 
 Use environment variables and local configuration for sensitive information.
 
@@ -1387,20 +1429,18 @@ git push
 If this is the first push to the GitHub repository:
 
 ```powershell
-git add .
-git commit -m "Initial commit"
 git branch -M main
-git remote add origin <YOUR_GITHUB_REPOSITORY_URL>
+
+git remote add origin https://github.com/ujjwalprajapatinareshbhai/office-assistant-ai.git
+
 git push -u origin main
 ```
 
-Replace:
+If the remote is already configured, do not run `git remote add origin` again. Simply use:
 
-```text
-<YOUR_GITHUB_REPOSITORY_URL>
+```powershell
+git push -u origin main
 ```
-
-with your actual repository URL.
 
 ---
 
@@ -1408,22 +1448,22 @@ with your actual repository URL.
 
 Possible future improvements:
 
-* [ ] Production deployment
-* [ ] Docker support
-* [ ] MCP health monitoring
-* [ ] Automatic MCP server restart
-* [ ] Authentication and user accounts
-* [ ] Role-based access control
-* [ ] Improved observability
-* [ ] Streaming responses
-* [ ] More document formats
-* [ ] Advanced document management
-* [ ] Better task scheduling
-* [ ] Multi-user memory isolation
-* [ ] Production database support
-* [ ] Cloud deployment
-* [ ] Automated CI/CD
-* [ ] Improved automated test coverage
+- [ ] Production deployment
+- [ ] Docker support
+- [ ] MCP health monitoring
+- [ ] Automatic MCP server restart
+- [ ] Authentication and user accounts
+- [ ] Role-based access control
+- [ ] Improved observability
+- [ ] Streaming responses
+- [ ] More document formats
+- [ ] Advanced document management
+- [ ] Better task scheduling
+- [ ] Multi-user memory isolation
+- [ ] Production database support
+- [ ] Cloud deployment
+- [ ] Automated CI/CD
+- [ ] Improved automated test coverage
 
 ---
 
@@ -1431,34 +1471,35 @@ Possible future improvements:
 
 Contributions are welcome.
 
-### 1. Fork the repository
+## 1. Fork the repository
 
 Create your own fork on GitHub.
 
-### 2. Create a feature branch
+## 2. Create a feature branch
 
 ```powershell
 git checkout -b feature/my-feature
 ```
 
-### 3. Make your changes
+## 3. Make your changes
 
 Implement and test your changes.
 
-### 4. Commit your changes
+## 4. Commit your changes
 
 ```powershell
 git add .
+
 git commit -m "Add my feature"
 ```
 
-### 5. Push your branch
+## 5. Push your branch
 
 ```powershell
 git push origin feature/my-feature
 ```
 
-### 6. Open a Pull Request
+## 6. Open a Pull Request
 
 Create a Pull Request on GitHub describing your changes.
 
@@ -1486,6 +1527,7 @@ After completing the initial installation and configuration:
 
 ```powershell
 cd office-assistant-ai
+
 .\start_all.ps1
 ```
 
